@@ -9,7 +9,7 @@ import { StudentCardComponent } from '../shared/student-card/student-card.compon
   styleUrl: './teacher-home.component.css',
 })
 export class TeacherHomeComponent {
-  users_service = inject(FirestoreService);
+  students_service = inject(FirestoreService);
 
-  students$ = this.users_service.getUsers();
+  students$ = this.students_service.getStudents();
 }

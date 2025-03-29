@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserInterface } from '../../user-home/types/user.interface';
+import { StudentInterface } from '../../user-home/types/student.interface';
 
 @Component({
   selector: 'app-student-card',
@@ -8,5 +8,5 @@ import { UserInterface } from '../../user-home/types/user.interface';
   styleUrl: './student-card.component.css',
 })
 export class StudentCardComponent {
-  @Input({ required: true }) student!: UserInterface;
+  @Input({ required: true }) student!: StudentInterface;
 }

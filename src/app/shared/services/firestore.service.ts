@@ -1,24 +1,33 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, collectionData, doc, setDoc } from "@angular/fire/firestore";
+import {
+  Firestore,
+  collection,
+  collectionData,
+  doc,
+  setDoc,
+} from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
-import { UserInterface } from '../../user-home/types/user.interface'
+import { StudentInterface } from '../../user-home/types/student.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirestoreService {
   firestore = inject(Firestore);
-  usersCollection = collection(this.firestore, 'users');
+  studentsCollection = collection(this.firestore, 'users');
 
-  getUsers(): Observable<UserInterface[]> {
-    return collectionData(this.usersCollection, {
+  getStudents(): Observable<StudentInterface[]> {
+    return collectionData(this.studentsCollection, {
       idField: 'id',
-    }) as Observable<UserInterface[]>;
+    }) as Observable<StudentInterface[]>;
   }
 
-  uptdateUser(userId: string, dataToUpdate: {xp: number, level: number}): Observable<void> {
+  updateStudent(
+    userId: string,
+    dataToUpdate: { xp: number; level: number }
+  ): Observable<void> {
     const docRef = doc(this.firestore, 'users/' + userId);
     const promise = setDoc(docRef, dataToUpdate);
-    return from(promise)
+    return from(promise);
   }
 }
