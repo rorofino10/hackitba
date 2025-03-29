@@ -4,6 +4,7 @@ import { ProfileComponent } from '../shared/profile/profile.component';
 
 import { StoreButtonComponent } from '../components/store-button/store-button.component';
 import { StudentService } from '../shared/services/student.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student-home',
@@ -14,8 +15,12 @@ import { StudentService } from '../shared/services/student.service';
 export class StudentHomeComponent implements OnInit {
   studentService = inject(StudentService);
   firestoreService = inject(FirestoreService);
-
+  student_name: string = '';
+  constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.student_name = params['name'] || 'Guest Student';
+    });
     this.firestoreService.getStudents().subscribe((students) => {
       // this.studentService.student.set();
     });
