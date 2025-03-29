@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { FirestoreService } from '../shared/services/firestore.service';
+import { AsyncPipe } from '@angular/common';
+import { StudentCardComponent } from '../shared/student-card/student-card.component';
 @Component({
   selector: 'app-teacher-home',
-  imports: [],
+  imports: [AsyncPipe, StudentCardComponent],
   templateUrl: './teacher-home.component.html',
-  styleUrl: './teacher-home.component.css'
+  styleUrl: './teacher-home.component.css',
 })
 export class TeacherHomeComponent {
+  users_service = inject(FirestoreService);
 
+  students$ = this.users_service.getUsers();
 }

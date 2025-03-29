@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, collectionData } from "@angular/fire/firestore";
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { UserInterface } from '../../user-home/types/user.interface'
+import { UserInterface } from '../../user-home/types/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirestoreService {
   firestore = inject(Firestore);
@@ -12,7 +12,7 @@ export class FirestoreService {
 
   getUsers(): Observable<UserInterface[]> {
     return collectionData(this.usersCollection, {
-      idField: 'id'
+      idField: 'id',
     }) as Observable<UserInterface[]>;
   }
 }

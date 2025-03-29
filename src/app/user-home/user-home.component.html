@@ -1,11 +1,12 @@
 <div class="flex flex-col min-h-screen justify-center items-center">
   <!-- app-profile on top -->
-  <app-profile [currentExp]="125" [maxExp]="200" [level]="7"></app-profile>
-  <div class="flex flex-row">
+  <div class="flex flex-row justify-center">
     <app-store-button
       [text]="'Recompensas'"
       [rewardCount]="2"
     ></app-store-button>
+    <app-profile [currentExp]="125" [maxExp]="200" [level]="7"></app-profile>
+
     <app-store-button
       [text]="'Recompensas'"
       [rewardCount]="2"

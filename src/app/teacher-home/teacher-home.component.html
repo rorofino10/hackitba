@@ -1,0 +1,3 @@
+@for (student of students$ | async; track student) {
+<app-student-card [student]="student"></app-student-card>
+}
