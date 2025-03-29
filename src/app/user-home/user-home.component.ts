@@ -17,10 +17,8 @@ export class UserHomeComponent implements OnInit {
   firestoreService = inject(FirestoreService);
 
   ngOnInit(): void {
-    this.firestoreService.getUsers().subscribe({
-      next: (data) => console.log(data),
-      error: (err) => console.error(err),
-      complete: () => console.log("finished")
+    this.firestoreService.getUsers().subscribe(users => {
+       this.userService.userSig.set(users)
     });
   }
 }
