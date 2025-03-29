@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Student } from '../../interfaces/student'; // Assuming you have a Student interface
+import { StudentInterface } from '../../user-home/types/student.interface';
 
 @Component({
   selector: 'app-selected-student-card',
@@ -8,7 +8,7 @@ import { Student } from '../../interfaces/student'; // Assuming you have a Stude
   styleUrls: ['./selected-student-card.component.css'],
 })
 export class SelectedStudentCardComponent {
-  @Input() student: Student | null = null;
+  @Input() student: StudentInterface | null = null;
   @Output() giveXp = new EventEmitter<number>();
   @Output() givePoints = new EventEmitter<number>();
 

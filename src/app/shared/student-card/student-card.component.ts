@@ -1,12 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { StudentInterface } from '../../user-home/types/student.interface';
 
 @Component({
   selector: 'app-student-card',
-  imports: [],
   templateUrl: './student-card.component.html',
-  styleUrl: './student-card.component.css',
+  styleUrls: ['./student-card.component.css'],
 })
 export class StudentCardComponent {
-  @Input({ required: true }) student!: StudentInterface;
+  @Input() student!: StudentInterface;
+  @Input() isSelected: boolean = false;
+  @Output() selected = new EventEmitter<StudentInterface>();
+
+  selectStudent() {
+    this.selected.emit(this.student);
+  }
 }

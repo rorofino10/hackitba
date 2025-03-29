@@ -5,7 +5,11 @@
 
     <div class="flex gap-4">
       @for (student of students$ | async; track student) {
-      <app-student-card [student]="student"></app-student-card>
+      <app-student-card
+        [student]="student"
+        [isSelected]="selectedStudent?.id === student.id"
+        (selected)="onStudentSelected($event)"
+      ></app-student-card>
       }
     </div>
   </div>
@@ -18,12 +22,11 @@
       Detalles del Estudiante
     </h2>
     <div class="space-y-4">
-      <div class="p-4 bg-blue-50 rounded-lg">
-        <h3 class="font-semibold text-blue-800">Estudiante Seleccionado</h3>
-        <p class="text-gray-600 mt-1">
-          Seleccionar un estudiante para ver sus detalles
-        </p>
-      </div>
+      <app-selected-student-card
+        [student]="selectedStudent"
+        (giveXp)="onGiveXp($event)"
+        (givePoints)="onGivePoints($event)"
+      ></app-selected-student-card>
 
       <div class="p-4 bg-gray-50 rounded-lg">
         <h3 class="font-semibold text-gray-800">Statistics</h3>
