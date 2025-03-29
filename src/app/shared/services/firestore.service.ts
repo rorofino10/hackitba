@@ -14,7 +14,7 @@ import { StudentInterface } from '../../user-home/types/student.interface';
 })
 export class FirestoreService {
   firestore = inject(Firestore);
-  studentsCollection = collection(this.firestore, 'users');
+  studentsCollection = collection(this.firestore, 'students');
 
   getStudents(): Observable<StudentInterface[]> {
     return collectionData(this.studentsCollection, {
@@ -26,7 +26,7 @@ export class FirestoreService {
     userId: string,
     dataToUpdate: { xp: number; level: number }
   ): Observable<void> {
-    const docRef = doc(this.firestore, 'users/' + userId);
+    const docRef = doc(this.firestore, 'students/' + userId);
     const promise = setDoc(docRef, dataToUpdate);
     return from(promise);
   }

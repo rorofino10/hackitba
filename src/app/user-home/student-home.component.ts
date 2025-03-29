@@ -19,7 +19,7 @@ export class StudentHomeComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.student_name = params['name'] || 'Guest Student';
+      this.student_name = params['name'] || 'Invitado';
     });
     this.firestoreService.getStudents().subscribe((students) => {
       // this.studentService.student.set();
