@@ -1,1 +1,96 @@
-<p>profile works!</p>
+<div class="flex flex-col items-center p-6">
+  <!-- Super Sized EXP Container -->
+  <div class="relative w-48 h-48">
+    <!-- Increased from w-28/h-28 -->
+    <!-- Background Ring -->
+    <svg class="w-full h-full" viewBox="0 0 100 100">
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="#e5e7eb"
+        stroke-width="10"
+        stroke-dasharray="283"
+        stroke-dashoffset="0"
+      />
+
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="url(#expGradient)"
+        stroke-width="10"
+        stroke-dasharray="283"
+        [attr.stroke-dashoffset]="283 - (283 * expPercentage) / 100"
+        stroke-linecap="round"
+        class="transition-all duration-1000 ease-out"
+      />
+
+      <defs>
+        <linearGradient id="expGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3b82f6" />
+          <stop offset="50%" stop-color="#8b5cf6" />
+          <stop offset="100%" stop-color="#ec4899" />
+        </linearGradient>
+      </defs>
+
+      @if (expPercentage > 0) {
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="white"
+        stroke-width="3"
+        stroke-dasharray="8,5"
+        [attr.transform]="'rotate(' + (360 * expPercentage) / 100 + ' 50 50)'"
+        class="origin-center"
+      >
+        <animate
+          attributeName="opacity"
+          values="0;1;0"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      }
+    </svg>
+
+    <!-- Larger Avatar Image -->
+    <img
+      src="https://img.freepik.com/vector-gratis/ilustracion-joven-principe-vector_1308-174367.jpg"
+      alt="Avatar"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full object-cover z-10 border-4 border-white shadow-xl"
+    />
+
+    <!-- Bigger Level Badge -->
+    <div
+      class="absolute bottom-2 right-2 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold z-20 border-4 border-white shadow-md"
+      [class.animate-ping]="levelUp"
+    >
+      {{ level }}
+    </div>
+  </div>
+
+  <!-- Larger EXP Text -->
+  <div
+    class="mt-6 text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+    [class.animate-bounce]="levelUp"
+  >
+    {{ currentExp }}/{{ maxExp }} EXP @if (levelUp) {
+    <span class="ml-3 text-lg text-green-400 animate-pulse">LEVEL UP!</span>}
+
+    <!-- Larger level up text -->
+  </div>
+
+  <!-- Enhanced Confetti -->
+  @if (levelUp) {
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    @for (c of confetti; track c;let idx = $index) {
+    <div class="confetti" [style]="getConfettiStyle(idx)"></div>
+    }
+  </div>
+  }
+</div>

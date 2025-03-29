@@ -1,1 +1,7 @@
-<p>user-home works!</p>
+<div class="flex flex-col min-h-screen justify-center items-center">
+  <!-- app-profile on top -->
+  <app-profile [currentExp]="125" [maxExp]="200" [level]="7"></app-profile>
+  <div class="flex flex-row">
+    <app-store-button [rewardCount]="0"></app-store-button>
+  </div>
+</div>

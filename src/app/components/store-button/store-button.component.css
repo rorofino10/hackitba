@@ -1,0 +1,17 @@
+/* Add to store-button.component.css */
+:host {
+    --reward-glow: 0 0 10px rgba(234, 179, 8, 0.7);
+  }
+  
+  button:hover .reward-badge {
+    animation: reward-bounce 0.5s ease;
+  }
+  
+  @keyframes reward-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+  
+  .reward-glow {
+    filter: drop-shadow(var(--reward-glow));
+  }

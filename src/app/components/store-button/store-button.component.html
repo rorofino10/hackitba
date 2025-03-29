@@ -1,0 +1,31 @@
+<button
+  (click)="navigateToStore('/user-home/store')"
+  class="relative px-6 py-3 bg-gray-50 hover:bg-gray-100 text-gray-800 font-medium border border-gray-200 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 active:bg-gray-200 group flex items-center gap-3"
+>
+  <!-- Trophy Icon -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class="w-6 h-6 text-yellow-500 group-hover:scale-110 transition-transform"
+  >
+    <path
+      d="M12 2C8.13 2 5 5.13 5 9v1.5c0 .28.22.5.5.5H7c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-.5c-.28 0-.5.22-.5.5V18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1.5c0-.28-.22-.5-.5-.5H17c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h1.5c.28 0 .5-.22.5-.5V9c0-3.87-3.13-7-7-7z"
+    />
+    <path
+      d="M12 5c1.93 0 3.5 1.57 3.5 3.5V11h-7V8.5C8.5 6.57 10.07 5 12 5z"
+      fill="#fff"
+      opacity="0.3"
+    />
+  </svg>
+
+  {{ text }}
+
+  <!-- Reward Counter Badge -->
+  @if (rewardCount>0) {
+  <span
+    class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold animate-pulse"
+  >
+    {{ rewardCount }} </span
+  >}
+</button>
