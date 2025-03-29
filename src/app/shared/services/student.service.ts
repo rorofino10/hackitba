@@ -11,6 +11,7 @@ export class StudentService {
     name: '',
     xp: 0,
   });
+  maxExp: number = 0;
 
   constructor() {}
 }

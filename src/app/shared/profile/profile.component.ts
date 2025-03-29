@@ -1,4 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+// import { FirestoreService } from '../services/firestore.service';
+import { StudentService } from '../services/student.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -44,7 +47,12 @@ export class ProfileComponent implements OnChanges {
   }
 
   triggerLevelUp() {
+    // const firestoreService = inject(FirestoreService);
+    const studentService = inject(StudentService)
+
     this.levelUp = true;
     setTimeout(() => (this.levelUp = false), 4000); // Longer celebration
+
+    // firestoreService.updateStudent(this.student.id, {xp: 0,level: this.student.level + 1})
   }
 }

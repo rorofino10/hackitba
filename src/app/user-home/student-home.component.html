@@ -5,11 +5,12 @@
       [text]="'Recompensas'"
       [rewardCount]="2"
     ></app-store-button>
-    <app-profile [currentExp]="125" [maxExp]="200" [level]="7"></app-profile>
+    <app-profile [currentExp]="studentService.student().xp" [maxExp]="studentService.maxExp" [level]="studentService.student().level"></app-profile>
 
     <app-store-button
       [text]="'Recompensas'"
       [rewardCount]="2"
     ></app-store-button>
+    <h1>{{studentService.student().name}}</h1>
   </div>
 </div>
