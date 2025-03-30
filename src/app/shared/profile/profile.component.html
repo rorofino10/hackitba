@@ -2,10 +2,20 @@
   <!-- Super Sized EXP Container -->
   <!-- Larger EXP Text -->
   <div
-    class="mt-6 text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+    class="mt-6 text-xl flex items-center font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
     [class.animate-bounce]="levelUp"
   >
+<<<<<<< HEAD
     {{ studentService.student().xp }}/{{ studentService.maxExp() }} EXP @if (levelUp) {
+=======
+    <div
+      class="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold z-20 border-4 border-white shadow-md"
+      [class.animate-ping]="levelUp"
+    >
+      {{ level }}
+    </div>
+    {{ currentExp }}/{{ maxExp }} EXP @if (levelUp) {
+>>>>>>> 58f0156349499eb83b4ab14d8ccc95a74fe7c55d
     <span class="ml-3 text-lg text-green-400 animate-pulse">LEVEL UP!</span>}
 
     <!-- Larger level up text -->
@@ -85,11 +95,14 @@
     />
 
     <!-- Bigger Level Badge -->
+<<<<<<< HEAD
     <div
       class="absolute bottom-2 right-2 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold z-20 border-4 border-white shadow-md"
       [class.animate-ping]="levelUp"
     >
       {{ studentService.student().level }}
     </div>
+=======
+>>>>>>> 58f0156349499eb83b4ab14d8ccc95a74fe7c55d
   </div>
 </div>
