@@ -37,28 +37,6 @@
     justify-content: center;
     position: relative;
     
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      width: 30px;
-      height: 30px;
-      background-color: #d81b60;
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      transform: rotate(180deg);
-    }
-    
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 30px;
-      width: 30px;
-      height: 30px;
-      background-color: #d81b60;
-      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      transform: rotate(180deg);
-    }
   }
   
   .gold-medal {
