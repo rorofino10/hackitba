@@ -1,1 +1,30 @@
-<p>appearance works!</p>
+<div class="shop-container">
+  <h1 class="shop-title">TIENDA DE SKINS</h1>
+
+  <!-- Categorías -->
+  <div class="categories-container">
+    <div
+      *ngFor="let category of categories"
+      class="category-tab"
+      [class.active]="category === selectedCategory"
+      (click)="selectCategory(category)"
+    >
+      {{ category }}
+    </div>
+  </div>
+
+  <!-- Grid de items -->
+  <div class="items-grid">
+    <div class="item-card" *ngFor="let item of getFilteredItems()">
+      <div class="item-image">
+        <img [src]="item.image" [alt]="item.name" />
+      </div>
+      <div class="item-name">{{ item.name }}</div>
+      <div *ngIf="!item.owned" class="item-price">
+        <img src="coin.png" alt="Moneda" class="coin-icon" />
+        {{ item.price | number }}
+      </div>
+      <div *ngIf="item.owned" class="item-owned">Adquirido</div>
+    </div>
+  </div>
+</div>
