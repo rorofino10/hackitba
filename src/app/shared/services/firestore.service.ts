@@ -5,6 +5,9 @@ import {
   collectionData,
   doc,
   setDoc,
+  query,
+  where,
+  getDocs,
 } from '@angular/fire/firestore';
 import { Observable, from } from 'rxjs';
 import { StudentInterface } from '../../user-home/types/student.interface';
@@ -21,6 +24,17 @@ export class FirestoreService {
       idField: 'id',
     }) as Observable<StudentInterface[]>;
   }
+
+  // async findStudentByName(name: string): Promise<any> {
+  //   const usersRef = collection(this.firestore, 'students');
+  //   const q = query(usersRef, where("name", "==", name));
+  //
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach(doc => {
+  //     console.log(doc.id, "=>", doc.data());
+  //     return doc.data()
+  //   });
+  // }
 
   updateStudent(
     userId: string,

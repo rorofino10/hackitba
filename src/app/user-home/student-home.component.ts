@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FirestoreService } from '../shared/services/firestore.service';
 import { ProfileComponent } from '../shared/profile/profile.component';
+import { StudentInterface } from "./types/student.interface";
 
 import { StudentService } from '../shared/services/student.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +30,13 @@ export class StudentHomeComponent implements OnInit {
       this.student_name = params['name'] || 'Invitado';
     });
     this.firestoreService.getStudents().subscribe((students) => {
-      // this.studentService.student.set();
+      students.forEach(student => {
+        if (student.name == this.studentService.student().name) {
+          this.studentService.student.set(student);
+          // this.studentService.maxExp.set(Math.floor(
+          //   100 * (1.5 ** (this.studentService.student().level - 1))))
+        }
+      });
     });
   }
 
