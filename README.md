@@ -4,8 +4,8 @@ _Feedback del profesor, inmediato y entretenido, para los alumnos_
 
 ## Comenzando 🚀
 
-La aplicación se encuentra alojada para el estudiante en https://rorofino10.github.io/hackitba/student-home?name=Jorge%20Perez
-y para el docente en https://rorofino10.github.io/hackitba/teacher-home
+La aplicación se encuentra alojada para el estudiante en [student-home](https://rorofino10.github.io/hackitba/student-home?name=Jorge%20Perez)
+y para el docente en [teacher-home](https://rorofino10.github.io/hackitba/teacher-home)
 
 Si querés probarla en local, acá están los pasos
 
