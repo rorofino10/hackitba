@@ -1,7 +1,15 @@
-import { Component, Input, OnChanges, SimpleChanges, inject, signal, DoCheck, computed} from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  inject,
+  signal,
+  DoCheck,
+  computed,
+} from '@angular/core';
 // import { FirestoreService } from '../services/firestore.service';
 import { StudentService } from '../services/student.service';
-
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +18,7 @@ import { StudentService } from '../services/student.service';
 })
 // export class ProfileComponent implements OnChanges {
 export class ProfileComponent implements DoCheck {
-  studentService = inject(StudentService)
+  studentService = inject(StudentService);
   // @Input() currentExp: number = 75;
   // @Input() maxExp: number = 100;
   // @Input() level: number = 5;
@@ -22,12 +30,14 @@ export class ProfileComponent implements DoCheck {
   // maxExp = this.studentService.maxExp
 
   // Usando directamente la señal de XP desde student()
-  currentExp = computed(() => this.studentService.student().xp)
+  currentExp = computed(() => this.studentService.student().xp);
 
   // Usando directamente la señal maxExp
-  maxExp = this.studentService.maxExp();
+  maxExp = this.studentService.maxExp;
 
-  expPercentage = computed(() => Math.min(100, (this.currentExp() / this.maxExp) * 100));
+  expPercentage = computed(() =>
+    Math.min(100, (this.currentExp() / this.maxExp()) * 100)
+  );
   // expPercentage = this.currentExp.pipe(
   //   map(exp => Math.min(100, (exp / this.maxExp()) * 100))
   // );
@@ -63,7 +73,7 @@ export class ProfileComponent implements DoCheck {
   }
 
   triggerLevelUp() {
-    if (this.currentExp() >= this.maxExp) {
+    if (this.currentExp() >= this.maxExp()) {
       // console.log(this.currentExp(), this.maxExp)
       this.levelUp = true;
       this.levelUpTimeout();
@@ -75,7 +85,7 @@ export class ProfileComponent implements DoCheck {
     console.log(this.currentExp(), this.maxExp);
 
     // Verifica si la XP alcanzó el máximo
-    if (this.currentExp() >= this.maxExp) {
+    if (this.currentExp() >= this.maxExp()) {
       this.triggerLevelUp();
     }
   }

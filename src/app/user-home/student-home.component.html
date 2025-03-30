@@ -1,27 +1,18 @@
 <div class="bg-gray-50 flex flex-col min-h-screen justify-center items-center">
-  <div class="flex justify-center w-full">
-    <!-- <app-level-indicator></app-level-indicator> -->
-    <app-points-indicator></app-points-indicator>
-  </div>
-  <!-- app-profile on top -->
-  <div class="flex flex-row justify-center">
+  <div class="flex flex-row">
     <div class="block">
-      <app-profile [currentExp]="125" [maxExp]="200" [level]="7"></app-profile>
-      <div class="flex flex-row justify-between">
+      <app-profile></app-profile>
+      <div class="flex flex-row justify-between items-center">
         <app-activity-button
-          (click)="goToStore()"
+          (click)="goToLeaderBoard()"
           imgPath="ShoppingCart.png"
         ></app-activity-button>
-        <app-activity-button
-          (click)="goToAppearance()"
-          imgPath="Registration.png"
-        ></app-activity-button>
+        <app-points-indicator></app-points-indicator>
         <app-activity-button
           (click)="goToLeaderBoard()"
           imgPath="Leaderboard.png"
         ></app-activity-button>
       </div>
     </div>
-    <h1>{{studentService.student().name}}</h1>
   </div>
 </div>
