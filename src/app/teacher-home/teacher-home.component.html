@@ -1,26 +1,19 @@
 <div class="flex flex-col md:flex-row h-screen bg-gray-50">
-  <!-- Left Column (70% width) -->
-  <div class="w-full md:w-[70%] p-4 overflow-y-auto">
-    <!-- Changed to 70% -->
+  <!-- Left Column - Cards Grid -->
+  <div class="w-full md:w-1/2 p-4 overflow-y-auto">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">Estudiantes</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <!-- Changed to grid layout -->
+    <div class="flex gap-4">
       @for (student of students$ | async; track student) {
-      <app-student-card
-        [student]="student"
-        [isSelected]="selectedStudent?.id === student.id"
-        (selected)="onStudentSelected($event)"
-      ></app-student-card>
+      <app-student-card [student]="student"></app-student-card>
       }
     </div>
   </div>
 
-  <!-- Right Column (30% width) -->
+  <!-- Right Column - Details Panel -->
   <div
-    class="w-full md:w-[30%] p-6 bg-white border-l border-gray-200 overflow-y-auto"
+    class="w-full md:w-1/2 p-6 bg-white border-l border-gray-200 overflow-y-auto"
   >
-    <!-- Changed to 30% -->
     <h2 class="text-2xl font-bold mb-6 text-gray-800">
       Detalles del Estudiante
     </h2>
@@ -34,10 +27,8 @@
       <div class="p-4 bg-gray-50 rounded-lg">
         <h3 class="font-semibold text-gray-800">Statistics</h3>
         <div class="mt-2 space-y-2">
-          <p class="text-sm">
-            Total Students: {{ (students$ | async)?.length }}
-          </p>
-          <p class="text-sm">Average Level: {{ calculateAverageLevel() }}</p>
+          <p class="text-sm">Total Students: 4</p>
+          <p class="text-sm">Average Level: 4.25</p>
         </div>
       </div>
     </div>
