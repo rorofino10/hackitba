@@ -5,10 +5,11 @@ import { ProfileComponent } from '../shared/profile/profile.component';
 import { StoreButtonComponent } from '../components/store-button/store-button.component';
 import { StudentService } from '../shared/services/student.service';
 import { ActivatedRoute } from '@angular/router';
+import { ActivityButtonComponent } from '../components/activity-button/activity-button.component';
 
 @Component({
   selector: 'app-student-home',
-  imports: [ProfileComponent, StoreButtonComponent],
+  imports: [ProfileComponent, StoreButtonComponent, ActivityButtonComponent],
   templateUrl: './student-home.component.html',
   styleUrl: './student-home.component.css',
 })
