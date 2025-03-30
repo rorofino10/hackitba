@@ -1,3 +1,15 @@
-<button (click)="onClick()" class="w-20 h-20 p-4 rounded-full bg-[#ffe4a6]">
-  <img class="w-full h-full" [src]="imgPath" />
+<button
+  (click)="onClick()"
+  class="group w-20 h-20 p-4 rounded-full bg-[#ffe4a6] relative transition-all duration-300"
+>
+  <!-- Original Image -->
+  <img class="w-full h-full z-10 relative" [src]="imgPath" />
+
+  <!-- Hover Effects (now working) -->
+  <div
+    class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-yellow-200 transition-opacity duration-300"
+  ></div>
+  <div
+    class="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-yellow-300/50 transition-all duration-300"
+  ></div>
 </button>
