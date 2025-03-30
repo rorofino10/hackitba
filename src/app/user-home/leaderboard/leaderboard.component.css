@@ -1,0 +1,160 @@
+.leaderboard-container {
+    font-family: 'Arial', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .leaderboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .leaderboard-content {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .top-player {
+    background-color: #f5f9ff;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+  }
+  
+  .medal {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      width: 30px;
+      height: 30px;
+      background-color: #d81b60;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      transform: rotate(180deg);
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+      background-color: #d81b60;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      transform: rotate(180deg);
+    }
+  }
+  
+  .gold-medal {
+    background-color: #ffc107;
+    
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  .player-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px 0;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .stars {
+    display: flex;
+    margin-bottom: 10px;
+    
+    .star {
+      color: #ffc107;
+      font-size: 24px;
+      margin: 0 2px;
+    }
+  }
+  
+  .player-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .player-score {
+    background-color: #bbdefb;
+    color: #1976d2;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .players-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .player-row {
+    display: flex;
+    align-items: center;
+    background-color: #f5f9ff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    
+    .player-avatar {
+      width: 50px;
+      height: 50px;
+      margin: 0 15px;
+    }
+    
+    .player-name {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    
+    .player-score {
+      width: auto;
+      padding: 5px 15px;
+      font-size: 16px;
+    }
+  }
+  
+  .position-indicator {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .position-number {
+    color: #9e9e9e;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  

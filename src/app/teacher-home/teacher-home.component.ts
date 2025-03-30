@@ -11,15 +11,32 @@ import { StudentInterface } from '../user-home/types/student.interface';
   styleUrl: './teacher-home.component.css',
 })
 export class TeacherHomeComponent {
+  firestoreService = inject(FirestoreService);
   selectedStudent: StudentInterface | null = null;
 
   onStudentSelected(student: StudentInterface) {
     this.selectedStudent = student;
   }
 
-  onGiveXp(amount: number) {}
+  onGiveXp(amount: number) {
+    if (this.selectedStudent != null) {
+      this.selectedStudent.xp += amount;
+      this.firestoreService.updateStudent(
+        this.selectedStudent?.id,
+        this.selectedStudent
+      );
+    }
+  }
 
-  onGivePoints(amount: number) {}
+  onGivePoints(amount: number) {
+    if (this.selectedStudent != null) {
+      this.selectedStudent.points += amount;
+      this.firestoreService.updateStudent(
+        this.selectedStudent?.id,
+        this.selectedStudent
+      );
+    }
+  }
   students_service = inject(FirestoreService);
 
   students$ = this.students_service.getStudents();

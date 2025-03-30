@@ -1,1 +1,77 @@
-<p>leaderboard works!</p>
+<!-- @for (student of top5Students$ | async; track student; let i = $index) {
+<div class="flex justify-evenly h-6">
+  @switch (i) { @case (0) {
+  <img src="gold.png" alt="" />
+  } @case (1) {
+  <img src="silver.png" alt="" />
+  } @case (2) {
+  <img src="bronce.png" alt="" />
+  }@default {
+  {{ i + 1 }}to }}
+  <img class[src]="student.img" />
+  {{ student.name }}
+  <app-level-indicator></app-level-indicator>
+</div>
+} -->
+
+<div class="leaderboard-container grid" style="grid-template-rows: auto 1fr">
+  <h1 class="leaderboard-title">RANKINGS</h1>
+
+  <div class="leaderboard-content flex flex-row">
+    <!-- Top player highlight -->
+    @if (topStudent$ | async; as topStudent) {
+    <div class="top-player">
+      <div class="medal gold-medal">
+        <img src="guarantee.png" alt="" />
+      </div>
+
+      <div class="player-avatar">
+        <img [src]="topStudent.img" [alt]="topStudent.name" />
+      </div>
+
+      <div class="stars">
+        @for (star of [1, 2, 3, 4, 5]; track $index) {
+        <span class="star">★</span>
+
+        }
+      </div>
+
+      <div class="player-name">{{ topStudent.name }}</div>
+
+      <div class="player-score">
+        Level {{ topStudent.level }}, {{ topStudent.xp }} XP
+      </div>
+    </div>
+    }
+
+    <!-- Other players list -->
+    <div class="players-list flex flex-row justify-center">
+      @for (student of top5Students$ | async; track student; let position =
+      $index) {
+      <div class="player-row">
+        <div class="position-indicator">
+          @switch (position) { @case (0) {
+          <img class="medal" src="gold.png" alt="" />
+          } @case (1) {
+          <img class="medal" src="silver.png" alt="" />
+          } @case (2) {
+          <img class="medal" src="bronce.png" alt="" />
+          }@default {
+          <div class="position-number">{{ position + 1 }}to</div>
+          }}
+        </div>
+
+        <div class="player-avatar">
+          <img [src]="student.img" [alt]="student.name" />
+        </div>
+
+        <div class="player-name">{{ student.name }}</div>
+
+        <div class="player-score">
+          Level {{ student.level }}, {{ student.xp }} XP
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
