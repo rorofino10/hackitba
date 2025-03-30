@@ -26,7 +26,8 @@ export class StudentHomeComponent implements OnInit {
       students.forEach(student => {
         if (student.name == this.studentService.student().name) {
           this.studentService.student.set(student);
-          this.studentService.maxExp = 100 * (1.5 ** (this.studentService.student().level - 1))
+          // this.studentService.maxExp.set(Math.floor(
+          //   100 * (1.5 ** (this.studentService.student().level - 1))))
         }
       });
     });

@@ -38,7 +38,7 @@ export class FirestoreService {
 
   updateStudent(
     userId: string,
-    dataToUpdate: { xp: number; level: number }
+    dataToUpdate: StudentInterface
   ): Observable<void> {
     const docRef = doc(this.firestore, 'students/' + userId);
     const promise = setDoc(docRef, dataToUpdate);
