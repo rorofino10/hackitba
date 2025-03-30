@@ -47,7 +47,7 @@
     <!-- Other players list -->
     <div class="players-list flex flex-row justify-center">
       @for (student of top5Students$ | async; track student; let position =
-      $index) {
+      $index) { @if (position != 0) {
       <div class="player-row">
         <div class="position-indicator">
           @switch (position) { @case (0) {
@@ -71,7 +71,7 @@
           Level {{ student.level }}, {{ student.xp }} XP
         </div>
       </div>
-      }
+      } }
     </div>
   </div>
 </div>

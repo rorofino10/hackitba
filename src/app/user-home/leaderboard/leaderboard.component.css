@@ -122,6 +122,7 @@
   .player-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #f5f9ff;
     border-radius: 10px;
     padding: 10px 20px;
