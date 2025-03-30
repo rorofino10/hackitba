@@ -11,6 +11,9 @@ import { StudentInterface } from '../user-home/types/student.interface';
   styleUrl: './teacher-home.component.css',
 })
 export class TeacherHomeComponent {
+  calculateAverageLevel() {
+    throw new Error('Method not implemented.');
+  }
   firestoreService = inject(FirestoreService);
   selectedStudent: StudentInterface | null = null;
 
